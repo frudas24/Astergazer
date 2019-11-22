@@ -3,3 +3,7 @@
 .project
 bin/
 target/
+/astergazer/.idea
+/astergazer/.vscode
+/astergazer/src/main/*.iml
+/astergazer/src/test/*.iml

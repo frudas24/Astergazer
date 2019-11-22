@@ -1,0 +1,42 @@
+version: '3'
+services:
+    
+  mysql:
+   container_name: v-mysql
+   image: mysql/mysql-server:5.7
+   environment:
+    MYSQL_DATABASE: test
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_ROOT_HOST: '%'
+   ports:
+    - "3306:3306"
+   expose:
+    - '3306'
+   networks:
+    - back-tier
+   restart: always
+   volumes:
+    - "db-data:/var/lib/mysql"
+    
+    
+  app:
+    restart: always
+    build: ./astergazer
+    working_dir: /astergazer
+    volumes:
+      - ./astergazer:/astergazer
+      - ~/.m2:/root/.m2
+    ports:
+      - 8080:8080  
+    expose:
+      - "8080"
+    depends_on:
+      - mysql
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker  
+    
+volumes:
+  db-data:
+
+networks:
+  back-tier:
+
