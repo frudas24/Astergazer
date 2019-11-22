@@ -32,6 +32,8 @@
         <version.janino>2.7.8</version.janino>
         <version.apache-commons-lang3>3.5</version.apache-commons-lang3>
         <version.asterisk-java>1.1.0-beta</version.asterisk-java>
+		<version.jaxb>2.3.0</version.jaxb>
+		<version.annotation>1.3.1</version.annotation>
     </properties>
 
     <build>
@@ -191,6 +193,26 @@
             <groupId>org.codehaus.janino</groupId>
             <artifactId>janino</artifactId>
             <version>${version.janino}</version>
+        </dependency>
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${version.jaxb}</version>
+		</dependency>
+	    <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>${version.annotation}</version>
+        </dependency>
+		<dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>${version.jaxb}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${version.jaxb}</version>
         </dependency>
         <dependency>
             <groupId>org.asteriskjava</groupId>
